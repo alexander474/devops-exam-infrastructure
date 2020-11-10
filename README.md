@@ -1,1 +1,1 @@
-# devpos-exam-infrastructure
+# devops-exam-infrastructure
