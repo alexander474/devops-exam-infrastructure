@@ -14,7 +14,7 @@ resource "google_cloud_run_service" "app" {
         }
         resources {
           limits = {
-            memory = "512Mi" # Increased resources to be able to run image of a larger size
+            memory = "512Mi" # Increased resources to run image of a larger size
           }
         }
       }
