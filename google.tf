@@ -10,7 +10,7 @@ resource "google_cloud_run_service" "app" {
         image = "gcr.io/${var.project_id}/app:e45121d02186dd16adc9c7a2eccae6179fc26180"
         env {
           name = "LOGZ_TOKEN"
-          value = var.logz_token
+          # value = var.logz_token
         }
         resources {
           limits = {
