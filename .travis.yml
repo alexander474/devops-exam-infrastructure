@@ -3,6 +3,8 @@ env:
   - GCP_PROJECT_ID=stockmanagement-294408
   - tf_version=0.13.3
   - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+  - secure: i05MxHt7dWc8Vc84KquHY9DwFpe3SR+6bSLnl8xCke+UrY1KtRwcZ0wI/N5xJvG+Mp044h86OvDd/84TlYMmhjkTy+DCIhpyTBTkXgM5qziS5XnXxxnEjU7XNKr6VPM6fZ87daFqY9yLQzmOCd3M99UdqoL1gDauuWJ+wlHtyfuM8Un8ATJC8IRR4sM9CA1jvGfRmoVtzieAxmnVp2bQW/XbJGpMWFQ56+4LCWLAYtXbuvNtxz+pgqaDzxmeId78OLPuQDwU8EEDGq/6MjaPYq/0XptKiYGrPjjhVXr9abFQmVqqWcyDvDdjgBoe3C209jS5Q24ReYFEi0PB3ngeLGkuglXU9YVOP88Psmornryqfj3elPTgtcX8POhML10QbA+MY4A8ZBO36mXR4wg9fNmA5b/j+wX3qwVLXHV5UxSUpdGGNrIWyJwZSMEhgZPqiTLVUXF29dVimUYLF/nn6y5Ee6KIs7NdyJmReYDlJey9YVcQPMlMWasd0SYkdryLt3kyCnzZEkYmeWfx/DAgTd6v8YeVvBp6iUs9k1Hl1R5xvpe0+aVNTdsMBtfO3CMDs+WQEoKWqFMRFjVGBxLaSr+/Q3CJi1L2alyQPkkjIYUYUUX91oPTBMXGbwkFa6oD3QhHDBHmkPpzgjZmajAaz713Dky+fILy2PhTwnot/ho=
+  - secure: Jy0OEPrisES4OKNYHYO7D0YBKBSu7Giic2niMeM4yEVJF2paU2cwR58YnT+orNxgA/zZ+Cb3CENlLSalp4SQarf4I2XdN/fsclTnCwq4IuxMh7QWXyATdExqFx6n8FGub96i5umYYs6OC+uamLjpg+Ldsp4V7yyiXjgQu6fuzU0n1qRnccZ9eKguW9cz+3le+rlDekatahNNcn804K6gsjOLLXrUX9Gjw/yEeYORCaIjn4jmc/0kymT1zpkTIwFtGyQm0bB4kkebQAMTcF5bbkyn2teH7RFdJE/oRsJTPpX0XIMxKGlAPrOzoIBwVs8w2sFjHEJtXwHkqvOieAYM2rWJjNkCRfg5AjwicJ03sTUvYwc3UK1uxm7mkRlFDMv4OoP13hMiybSeWJJEwHtvy6vikpluDkMINVbXOJ0uK2O2KZZhTmbdU0qJZVg1/tq9ucjESKRS4SHR7wdy7K2/cxR08+Ea+l0eWdsUqRASOIg5uiHSYKYH8JfgE7KBxIOSdQkgFYxy1emRjNNIk7eo0kA+c7Ke25B/ozqyMa97ocbR7n8nZN96nHCwvTjdvrgV7znRrCrVfG8+c3mtWEoGGZ8Wl3NzyPTVX/PH7ILmQla6z49JkvKSihrkiukZSdavrTVYQgmzNwik6sLMAEJibahveProuzpgFr/zWdIan/o=
 branches:
   only:
   - master
@@ -22,6 +24,8 @@ install: true
 script:
 - |-
   set -ex;
+  export TF_VAR_logz_token=$LOGZ_TOKEN
+  export TF_VAR_logz_url=$LOGZ_URL
   terraform init
   terraform plan
   terraform apply --auto-approve
