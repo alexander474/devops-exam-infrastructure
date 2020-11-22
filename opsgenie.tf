@@ -35,17 +35,17 @@ resource "opsgenie_team" "teamOne" {
   name = "Team 1"
 
   member {
-    id = "${opsgenie_user.userOne.id}"
+    id = opsgenie_user.userOne.id
     role = "user"
   }
 
   member {
-    id = "${opsgenie_user.userTwo.id}"
+    id = opsgenie_user.userTwo.id
     role = "user"
   }
 
     member {
-    id = "${opsgenie_user.userThree.id}"
+    id = opsgenie_user.userThree.id
     role = "user"
   }
 }
@@ -56,27 +56,27 @@ resource "opsgenie_schedule" "schedule" {
   description   = "Schedule for team rotation"
   enabled = true
   timezone      = "Europe/Oslo"
-  owner_team_id = "${opsgenie_team.teamOne.id}"
+  owner_team_id = opsgenie_team.teamOne.id
 }
 
 resource "opsgenie_schedule_rotation" "rotation" {
   name = "rotation"
-  schedule_id = "${opsgenie_schedule.schedule.id}"
+  schedule_id = opsgenie_schedule.schedule.id
   start_date = "2020-11-21T00:00:00Z"
   type = "hourly"
 
   participant {
     type = "user"
-    id = "${opsgenie_user.userOne.id}"
+    id = opsgenie_user.userOne.id
   }
 
   participant {
     type = "user"
-    id = "${opsgenie_user.userTwo.id}"
+    id = opsgenie_user.userTwo.id
   }
 
   participant {
     type = "user"
-    id = "${opsgenie_user.userThree.id}"
+    id = opsgenie_user.userThree.id
   }
 }
