@@ -10,4 +10,8 @@
 > travis encrypt LOGZ_URL=<your_key> --add
 
 > travis encrypt STATUSCAKE_APIKEY=<your_key> --add
+
+> travis encrypt STATUSCAKE_USERNAME=<your_username> --add
+
+> travis encrypt OPSGENIE_API_KEY=<your_key> --add
 ```
