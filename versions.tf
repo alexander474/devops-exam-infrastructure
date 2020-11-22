@@ -10,7 +10,7 @@ terraform {
       source = "terraform-providers/statuscake"
     }
     opsgenie = {
-      source = "terraform-providers/opsgenie"
+      source = "opsgenie/opsgenie"
     }
   }
   required_version = ">= 0.13"
